@@ -1,10 +1,10 @@
 # Node modules
 frontend/node_modules/
-backend/node_modules/
+server/node_modules/
 
 # Environment variables
 frontend/.env
-backend/.env
+server/.env
 
 # Logs
 logs/
@@ -19,9 +19,8 @@ lerna-debug.log*
 frontend/dist/
 frontend/dist-ssr/
 
-# Build output (backend and admin)
-backend/build/
-admin/build/
+# Build output (server)
+server/build/
 
 # Editor directories and files
 .vscode/*

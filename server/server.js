@@ -20,6 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("API Working!");
+});
+
 app.listen(PORT, () => {
   connectDB();
   console.log(`server is running on port ${PORT}`);

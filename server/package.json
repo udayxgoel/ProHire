@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "server": "node server.js",
     "start": "node server.js"
@@ -9,7 +10,6 @@
   "author": "Uday Goel",
   "license": "ISC",
   "description": "",
-  "type": "module",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.5.0",

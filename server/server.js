@@ -27,6 +27,8 @@ app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
 
+app.get("/", (req, res) => res.send("API Working"));
+
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);

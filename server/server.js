@@ -14,11 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const corsOptions = {
-  origin: "https://prohirejobs.vercel.app",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 const PORT = process.env.PORT || 4000;
 

@@ -1,56 +1,98 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
-import { useDispatch } from "react-redux";
-import { setsearchedQuery } from "@/redux/jobSlice";
 
 const filterData = [
   {
     filterType: "Location",
-    array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"],
+    array: ["Delhi", "Mumbai", "Bangalore", "Hyderabad", "Pune", "Remote"],
   },
   {
-    filterType: "Industry",
-    array: ["Frontend Developer", "Backend Developer", "FullStack Developer"],
+    filterType: "Category",
+    array: [
+      "Software",
+      "Marketing",
+      "Design",
+      "Sales",
+      "HR",
+      "Finance",
+      "Other",
+    ],
   },
   {
-    filterType: "Salary",
-    array: ["0-40k", "42k-1lakh", "1lakh to 5lakh"],
+    filterType: "Experience",
+    array: ["Intern", "Junior", "Mid", "Senior"],
   },
 ];
 
-const FilterCard = () => {
-  const [selectedValue, setSelectedValue] = useState("");
-  const dispatch = useDispatch();
-
-  const changeHandler = (value) => {
-    setSelectedValue(value);
+const FilterCard = ({ selectedFilters, setSelectedFilters }) => {
+  const changeHandler = (filterType, value) => {
+    setSelectedFilters((prev) => ({
+      ...prev,
+      [filterType]: value,
+    }));
   };
 
-  useEffect(() => {
-    dispatch(setsearchedQuery(selectedValue));
-  }, [selectedValue]);
+  const resetFilter = () => {
+    setSelectedFilters({
+      Location: "",
+      Category: "",
+      Experience: "",
+    });
+  };
 
   return (
-    <div className="w-full bg-white p-3 rounded-md">
-      <h1 className="font-bold text-lg">Filter Jobs</h1>
-      <hr className="mt-3" />
-      <RadioGroup value={selectedValue} onValueChange={changeHandler}>
-        {filterData.map((data, index) => (
-          <div key={index}>
-            <h1 className="font-bold text-lg">{data.filterType}</h1>
-            {data.array.map((item, idx) => {
-              const uid = `u${index}-${idx}`;
-              return (
-                <div className="flex items-center space-x-2 my-2" key={idx}>
-                  <RadioGroupItem value={item} id={uid} />
-                  <Label htmlFor={uid}>{item}</Label>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </RadioGroup>
+    <div className="w-full bg-white p-4 rounded-md shadow-md">
+      <h1 className="text-2xl font-bold mb-4 border-b-4 border-blue-600 inline-block pb-1">
+        Filter Jobs
+      </h1>
+
+      {filterData.map((data, index) => (
+        <RadioGroup
+          key={index}
+          value={selectedFilters[data.filterType]}
+          onValueChange={(value) => changeHandler(data.filterType, value)}
+          className="space-y-3 mb-6"
+        >
+          <h2 className="font-semibold text-lg">{data.filterType}</h2>
+          {data.array.map((item, idx) => {
+            const uid = `${data.filterType}-${idx}`;
+            return (
+              <div
+                key={uid}
+                className="flex items-center space-x-3 cursor-pointer hover:text-blue-600"
+              >
+                <RadioGroupItem
+                  value={item}
+                  id={uid}
+                  className="ring-offset-2 ring-blue-500 focus:ring-2"
+                />
+                <Label htmlFor={uid} className="cursor-pointer select-none">
+                  {item}
+                </Label>
+              </div>
+            );
+          })}
+        </RadioGroup>
+      ))}
+
+      <button
+        onClick={resetFilter}
+        disabled={
+          !selectedFilters.Location &&
+          !selectedFilters.Category &&
+          !selectedFilters.Experience
+        }
+        className={`mt-4 w-full py-2 rounded-md text-white font-semibold ${
+          selectedFilters.Location ||
+          selectedFilters.Category ||
+          selectedFilters.Experience
+            ? "bg-blue-600 hover:bg-blue-700"
+            : "bg-gray-400 cursor-not-allowed"
+        } transition-colors`}
+      >
+        Clear Filter
+      </button>
     </div>
   );
 };

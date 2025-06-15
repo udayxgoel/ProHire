@@ -7,6 +7,7 @@ import useGetAllJobs from "@/hooks/useGetAllJobs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CategoryCarousel from "./CategoryCarousel";
+import Jobs from "./Jobs";
 
 const Home = () => {
   useGetAllJobs();
@@ -21,8 +22,8 @@ const Home = () => {
     <div>
       <Navbar />
       <HeroSection />
-      <CategoryCarousel />
-      <LatestJobs />
+      {/* <LatestJobs /> */}
+      <Jobs />
       <Footer />
     </div>
   );

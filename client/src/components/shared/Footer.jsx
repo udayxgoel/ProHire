@@ -1,64 +1,86 @@
+// Footer.jsx
 import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
-          {/* Left Section */}
-          <div>
-            <h2 className="text-2xl font-bold">Pro Hire</h2>
-            <p className="text-gray-400 mt-2">
-              &copy; 2024 Pro Hire. All rights reserved.
-            </p>
-          </div>
+    <footer className="bg-[#f5faff] border-t border-gray-300 py-10 mt-10">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+        {/* Brand Section */}
+        <div className="flex flex-col items-center md:items-start">
+          <h2 className="text-2xl font-bold text-[#003049] mb-4">ProHire</h2>
+          <p className="text-sm text-gray-700 max-w-xs">
+            Connecting talent with opportunity. Find your next big break here.
+          </p>
+        </div>
 
-          {/* Middle Section - Links */}
-          <div className="flex space-x-6">
-            <a href="/about" className="hover:text-gray-400">
-              About
-            </a>
-            <a href="/contact" className="hover:text-gray-400">
-              Contact
-            </a>
-            <a href="/privacy" className="hover:text-gray-400">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="hover:text-gray-400">
-              Terms of Service
-            </a>
-          </div>
+        {/* Quick Links */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold text-[#003049] mb-4">
+            Quick Links
+          </h3>
+          <ul className="space-y-2 text-sm text-gray-600">
+            <li>
+              <a href="/" className="hover:text-[#007BFF]">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/jobs" className="hover:text-[#007BFF]">
+                Jobs
+              </a>
+            </li>
+            <li>
+              <a href="/about" className="hover:text-[#007BFF]">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:text-[#007BFF]">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          {/* Right Section - Social Icons */}
-          <div className="flex space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
-            >
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
-            >
-              <i className="fab fa-instagram"></i>
-            </a>
-          </div>
+        {/* Categories */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold text-[#003049] mb-4">
+            Popular Categories
+          </h3>
+          <ul className="space-y-2 text-sm text-gray-600">
+            <li>Engineering</li>
+            <li>Marketing</li>
+            <li>Design</li>
+            <li>Sales</li>
+          </ul>
+        </div>
+
+        {/* Newsletter */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold text-[#003049] mb-4">
+            Stay Updated
+          </h3>
+          <p className="text-sm text-gray-600 mb-3 text-center md:text-left">
+            Subscribe to job alerts and updates.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-2 w-full max-w-xs">
+            <input
+              type="email"
+              placeholder="Email address"
+              className="px-3 py-2 rounded border border-gray-300 text-sm w-full focus:outline-none"
+            />
+            <button className="bg-[#007BFF] text-white px-4 py-2 rounded text-sm hover:bg-[#005FCC] w-full sm:w-auto">
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
-    </div>
+
+      {/* Bottom Copyright */}
+      <div className="text-center text-sm text-gray-500 mt-8 border-t pt-4 px-4">
+        © {new Date().getFullYear()} ProHire. All rights reserved.
+      </div>
+    </footer>
   );
 };
 

@@ -1,5 +1,4 @@
-import { application } from "express";
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const jobSchema = new mongoose.Schema(
   {
@@ -11,30 +10,21 @@ const jobSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    requirements: [
-      {
-        type: String,
-        required: true,
-      },
-    ],
     salary: {
       type: Number,
       required: true,
     },
-    experienceLevel: {
-      type: Number,
+    experience: {
+      type: String,
+      enum: ["Intern", "Junior", "Mid", "Senior"],
       required: true,
     },
     location: {
       type: String,
-      requiredL: true,
-    },
-    jobType: {
-      type: String,
       required: true,
     },
-    position: {
-      type: Number,
+    category: {
+      type: String,
       required: true,
     },
     company: {

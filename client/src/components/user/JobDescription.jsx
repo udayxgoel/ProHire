@@ -19,6 +19,15 @@ const JobDescription = () => {
   const [isApplied, setIsApplied] = useState(false);
 
   const applyJobHandler = async () => {
+    if (!user) {
+      toast.error("You need to be logged in to apply for this job");
+      return;
+    }
+
+    if (user.role === "recruiter") {
+      toast.error("Recruiters cannot apply to this job");
+      return;
+    }
     try {
       const res = await axios.get(
         `${APPLICATION_API_END_POINT}/apply/${jobId}`,

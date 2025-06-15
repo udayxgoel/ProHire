@@ -52,7 +52,7 @@ const AppliedJobTable = () => {
                 </TableCell>
                 <TableCell>
                   <Link
-                    to={`/job/${appliedJob.job?._id}`}
+                    to={`/description/${appliedJob.job?._id}`}
                     className="text-blue-600 hover:underline"
                   >
                     {appliedJob.job?.title || "-"}

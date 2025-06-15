@@ -19,21 +19,12 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port ${PORT}`);
-});
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://prohirejobs.vercel.app");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
 });
 
 // Routes

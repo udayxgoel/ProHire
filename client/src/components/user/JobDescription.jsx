@@ -13,29 +13,26 @@ import Footer from "../shared/Footer";
 const JobDescription = () => {
   const { singleJob } = useSelector((store) => store.job);
   const { user } = useSelector((store) => store.auth);
-
-  const isInitiallyApplied =
-    singleJob?.applications?.some((app) => app.applicant === user?._id) ||
-    false;
-
-  const [isApplied, setIsApplied] = useState(isInitiallyApplied);
   const dispatch = useDispatch();
   const { id: jobId } = useParams();
+
+  const [isApplied, setIsApplied] = useState(false);
 
   const applyJobHandler = async () => {
     try {
       const res = await axios.get(
         `${APPLICATION_API_END_POINT}/apply/${jobId}`,
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
       if (res.data.success) {
         setIsApplied(true);
         dispatch(
           setSingleJob({
             ...singleJob,
-            applications: [...singleJob.applications, { applicant: user?._id }],
+            applications: [
+              ...(singleJob?.applications || []),
+              { applicant: user?._id },
+            ],
           })
         );
         toast.success(res.data.message);
@@ -54,9 +51,11 @@ const JobDescription = () => {
         if (res.data.success) {
           dispatch(setSingleJob(res.data.job));
           setIsApplied(
-            res.data.job.applications.some((app) => app.applicant === user?._id)
+            res.data.job.applications?.some(
+              (app) => app.applicant === user?._id
+            )
           );
-          console.log(singleJob);
+          console.log(res.data.job); // ✅ Corrected
         }
       } catch (error) {
         console.log(error);
@@ -64,6 +63,8 @@ const JobDescription = () => {
     };
     fetchSingleJob();
   }, [jobId, dispatch, user?._id]);
+
+  if (!singleJob) return null; // ✅ Prevents render crash
 
   return (
     <>
@@ -112,7 +113,6 @@ const JobDescription = () => {
           </div>
         </div>
 
-        {/* Job Description */}
         <div className="bg-white shadow-sm p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-4">Job Description</h3>
           <p
@@ -120,7 +120,6 @@ const JobDescription = () => {
             className="text-gray-700 leading-relaxed"
           ></p>
 
-          {/* Bottom Apply Button */}
           <div className="mt-8 text-center">
             <Button
               onClick={applyJobHandler}

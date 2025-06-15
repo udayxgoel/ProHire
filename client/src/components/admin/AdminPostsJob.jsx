@@ -31,7 +31,6 @@ const AdminPostsJob = () => {
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
   const { companies } = useSelector((store) => store.company);
 
   const changeEventHandler = (e) => {
@@ -69,10 +68,10 @@ const AdminPostsJob = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center w-screen my-5">
+      <div className="flex items-center justify-center w-full px-4 my-5">
         <form
           onSubmit={submitHandler}
-          className="p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md space-y-4"
+          className="w-full max-w-4xl border border-gray-200 shadow-lg rounded-md p-6 sm:p-8 space-y-4"
         >
           <div>
             <Label>Title</Label>
@@ -81,7 +80,7 @@ const AdminPostsJob = () => {
               name="title"
               value={input.title}
               onChange={changeEventHandler}
-              className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
+              className="w-full my-1"
             />
           </div>
 
@@ -92,12 +91,11 @@ const AdminPostsJob = () => {
               name="description"
               value={input.description}
               onChange={changeEventHandler}
-              className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
+              className="w-full my-1"
             />
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            {/* Category */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div>
               <Label>Category</Label>
               <Select
@@ -128,7 +126,6 @@ const AdminPostsJob = () => {
               </Select>
             </div>
 
-            {/* Location */}
             <div>
               <Label>Location</Label>
               <Select
@@ -158,7 +155,6 @@ const AdminPostsJob = () => {
               </Select>
             </div>
 
-            {/* Experience (Already there) */}
             <div>
               <Label>Experience</Label>
               <Select
@@ -189,7 +185,7 @@ const AdminPostsJob = () => {
               name="salary"
               value={input.salary}
               onChange={changeEventHandler}
-              className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
+              className="w-full my-1"
             />
           </div>
 
@@ -217,7 +213,7 @@ const AdminPostsJob = () => {
           )}
 
           {loading ? (
-            <Button className="w-full my-4">
+            <Button className="w-full my-4" disabled>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Please wait
             </Button>

@@ -11,15 +11,14 @@ dotenv.config({});
 
 const app = express();
 
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-};
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+const corsOptions = {
+  origin: "https://prohirejobs.vercel.app",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 4000;
 

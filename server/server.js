@@ -11,14 +11,14 @@ dotenv.config({});
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 const corsOptions = {
   origin: "https://prohirejobs.vercel.app",
   credentials: true,
 };
 app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 const PORT = process.env.PORT || 4000;
 
@@ -27,8 +27,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+// Routes
 app.get("/", (req, res) => res.send("API Working"));
-
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);

@@ -16,7 +16,7 @@ const Job = ({ job }) => {
   };
 
   return (
-    <div className="p-4 sm:p-6 rounded-xl shadow-md bg-[#f5faff] border border-gray-200 hover:shadow-lg transition-all h-full flex flex-col justify-between gap-y-3">
+    <div className="w-full h-full p-4 sm:p-6 rounded-xl shadow-md bg-[#f5faff] border border-gray-200 hover:shadow-lg transition-all flex flex-col justify-between gap-y-3 overflow-hidden">
       {/* Post Date */}
       <p className="text-sm text-gray-500">{daysAgo(job?.createdAt)}</p>
 
@@ -57,16 +57,16 @@ const Job = ({ job }) => {
       </div>
 
       {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+      <div className="flex flex-col sm:flex-row gap-3 mt-auto w-full">
         <Button
-          className="w-full bg-[#1E88E5] hover:bg-[#1565C0] text-white"
+          className="sm:w-1/2 w-full bg-[#1E88E5] hover:bg-[#1565C0] text-white"
           onClick={() => navigate(`/description/${job?._id}`)}
         >
           Apply Now
         </Button>
         <Button
           variant="outline"
-          className="w-full border-gray-400 text-gray-800"
+          className="sm:w-1/2 w-full border-gray-400 text-gray-800"
           onClick={() => navigate(`/description/${job?._id}`)}
         >
           Learn More

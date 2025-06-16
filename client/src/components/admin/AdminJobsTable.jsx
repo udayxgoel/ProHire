@@ -105,7 +105,7 @@ const AdminJobsTable = () => {
               </p>
               <div className="flex gap-4 justify-end">
                 <button
-                  onClick={() => navigate(`/admin/companies/${job._id}`)}
+                  onClick={() => navigate(`/admin/jobs/${job._id}`)}
                   className="flex items-center gap-1 text-blue-600"
                 >
                   <Edit2 className="w-4" />

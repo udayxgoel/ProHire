@@ -21,10 +21,12 @@ const jobSchema = new mongoose.Schema(
     },
     location: {
       type: String,
+      enum: ["Delhi", "Mumbai", "Bangalore", "Hyderabad", "Pune", "Remote"],
       required: true,
     },
     category: {
       type: String,
+      enum: ["FullStack Developer", "Backend Developer", "Frontend Developer"],
       required: true,
     },
     company: {

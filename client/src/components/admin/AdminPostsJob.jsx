@@ -109,13 +109,9 @@ const AdminPostsJob = () => {
                 <SelectContent>
                   <SelectGroup>
                     {[
-                      "Software",
-                      "Marketing",
-                      "Design",
-                      "Sales",
-                      "HR",
-                      "Finance",
-                      "Other",
+                      "FullStack Developer",
+                      "Backend Developer",
+                      "Frontend Developer",
                     ].map((cat) => (
                       <SelectItem key={cat} value={cat}>
                         {cat}

@@ -71,7 +71,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         setOpen(false);
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);

@@ -69,7 +69,7 @@ const Footer = () => {
               placeholder="Email address"
               className="px-3 py-2 rounded border border-gray-300 text-sm w-full focus:outline-none"
             />
-            <button className="bg-[#007BFF] text-white px-4 py-2 rounded text-sm hover:bg-[#005FCC] w-full sm:w-auto">
+            <button className="bg-[#1E88E5] text-white px-4 py-2 rounded text-sm hover:bg-[#1565C0] w-full sm:w-auto">
               Subscribe
             </button>
           </form>

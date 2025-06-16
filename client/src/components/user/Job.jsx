@@ -59,7 +59,7 @@ const Job = ({ job }) => {
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-3 mt-auto">
         <Button
-          className="w-full bg-[#007BFF] hover:bg-[#005FCC] text-white"
+          className="w-full bg-[#1E88E5] hover:bg-[#1565C0] text-white"
           onClick={() => navigate(`/description/${job?._id}`)}
         >
           Apply Now

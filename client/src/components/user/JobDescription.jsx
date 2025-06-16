@@ -64,7 +64,6 @@ const JobDescription = () => {
               (app) => app.applicant === user?._id
             )
           );
-          console.log(res.data.job); // ✅ Corrected
         }
       } catch (error) {
         console.log(error);
@@ -73,7 +72,7 @@ const JobDescription = () => {
     fetchSingleJob();
   }, [jobId, dispatch, user?._id]);
 
-  if (!singleJob) return null; // ✅ Prevents render crash
+  if (!singleJob) return null;
 
   return (
     <>
@@ -103,7 +102,7 @@ const JobDescription = () => {
               className={`px-6 py-2 text-white font-semibold rounded-md ${
                 isApplied
                   ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 hover:bg-blue-700"
+                  : "bg-[#1E88E5] hover:bg-blue-500"
               }`}
             >
               {isApplied ? "Already Applied" : "Apply Now"}
@@ -136,7 +135,7 @@ const JobDescription = () => {
               className={`px-6 py-2 text-white font-semibold rounded-md ${
                 isApplied
                   ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 hover:bg-blue-700"
+                  : "bg-[#1E88E5] hover:bg-blue-500"
               }`}
             >
               {isApplied ? "Already Applied" : "Apply Now"}

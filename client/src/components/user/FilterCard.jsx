@@ -9,15 +9,7 @@ const filterData = [
   },
   {
     filterType: "Category",
-    array: [
-      "Software",
-      "Marketing",
-      "Design",
-      "Sales",
-      "HR",
-      "Finance",
-      "Other",
-    ],
+    array: ["FullStack Developer", "Backend Developer", "Frontend Developer"],
   },
   {
     filterType: "Experience",

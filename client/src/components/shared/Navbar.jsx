@@ -36,7 +36,6 @@ const Navbar = () => {
       }
     } catch (error) {
       toast.error("Logout failed. Please try again.");
-      console.log(error);
     }
   };
 
@@ -44,14 +43,13 @@ const Navbar = () => {
     <div className="bg-white">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <CheckCheck className="text-[#1E88E5] w-7 h-7" />
-          <h1 className="text-xl font-bold text-[#1E88E5]">
+          <h1 className="text-2xl font-bold text-[#1E88E5]">
             ProHire <span className="text-[#2C3E50]">Jobs</span>
           </h1>
-        </div>
+        </Link>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-5">
           {!user ? (
             <div className="flex items-center gap-2">
@@ -144,7 +142,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Hamburger Button */}
         <div className="md:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? (
@@ -156,7 +153,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
       {mobileMenuOpen && (
         <div className="px-4 pb-4 md:hidden">
           {!user ? (

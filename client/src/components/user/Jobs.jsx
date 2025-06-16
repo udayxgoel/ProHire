@@ -103,15 +103,15 @@ const Jobs = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
               {currentJobs.map((job) => (
-                <motion.div
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.3 }}
-                  key={job._id}
-                >
-                  <Job job={job} />
-                </motion.div>
+                // <motion.div
+                //   initial={{ opacity: 0, x: 100 }}
+                //   animate={{ opacity: 1, x: 0 }}
+                //   exit={{ opacity: 0, x: -100 }}
+                //   transition={{ duration: 0.3 }}
+                //   key={job._id}
+                // >
+                <Job job={job} />
+                // </motion.div>
               ))}
             </div>
           )}

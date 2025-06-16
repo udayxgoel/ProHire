@@ -104,13 +104,13 @@ const AdminJobsTable = () => {
                 {job.createdAt.split("T")[0]}
               </p>
               <div className="flex gap-4 justify-end">
-                <button
+                {/* <button
                   onClick={() => navigate(`/admin/jobs/${job._id}`)}
                   className="flex items-center gap-1 text-blue-600"
                 >
                   <Edit2 className="w-4" />
                   Edit
-                </button>
+                </button> */}
                 <button
                   onClick={() => navigate(`/admin/jobs/${job._id}/applicants`)}
                   className="flex items-center gap-1 text-green-600"

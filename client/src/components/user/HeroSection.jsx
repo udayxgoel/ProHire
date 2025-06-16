@@ -38,7 +38,7 @@ const HeroSection = () => {
             Your career is just one search away.
           </p>
 
-          <div className="flex flex-col sm:flex-row w-full max-w-xl mx-auto gap-3 sm:gap-4 bg-white p-3 sm:p-0 border border-gray-200 rounded-2xl shadow-sm">
+          <div className="flex flex-col sm:flex-row w-full max-w-xl mx-auto gap-3 sm:gap-4 bg-white p-2 sm:p-0 border border-gray-200 rounded-2xl shadow-sm">
             <input
               type="text"
               placeholder="Find your dream job"
